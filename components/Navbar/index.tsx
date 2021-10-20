@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import Logo from "../Logo";
-import Basket from "../Basket";
+import NavbarBasket from "../Basket/NavbarBasket";
 
 import styles from "./style.module.scss";
 
@@ -10,7 +10,7 @@ export function Navbar(): ReactElement {
       <div className={styles['navbar-container']}>
         <Logo />
 
-        <Basket />
+        <NavbarBasket />
       </div>
     </div>
   )

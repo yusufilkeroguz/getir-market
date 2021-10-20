@@ -1,16 +1,17 @@
-$min-container-width: 100%;
-$max-container-width: 1200px;
+$default-font-family: "Open Sans", Helvetica Neue, sans-serif;
+$default-font-size: 14px;
+$default-line-height: 18px;
+
+$container-mobile-width: 100%;
+$container-desktop-width: 1200px;
+
+$sides-mobile-width: 100%;
+$sides-desktop-width: 296px;
 
 $color-primary: #1EA4CE;
 $color-primary-dark: #147594;
 $color-white: #FFFFFF;
 $color-black: #525252;
 $color-gray: #DFDEE2;
-$color-gray2: #697488;
-
-@mixin makeFlex($justifyContent: center, $alignItems: center, $flexWrap: no-wrap) {
-  display: flex;
-  justify-content: $justifyContent;
-  align-items: $alignItems;
-  flex-wrap: $flexWrap;
-}
+$color-gray-light: #E5E5E5;
+$color-gray-dark: #697488;

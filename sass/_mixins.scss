@@ -1,0 +1,33 @@
+@import "./variables";
+
+@mixin makeFlex($justifyContent: center, $alignItems: center, $flexWrap: no-wrap) {
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-wrap: $flexWrap;
+}
+
+@mixin onDesktop() {
+  @media all and (min-width: 1232px) {
+    @content;
+  }
+}
+
+@mixin createMainContainer() {
+  display: grid;
+  grid-template-columns: $sides-mobile-width auto $sides-mobile-width;
+  grid-template-rows: auto;
+  grid-template-areas: "left content right";
+  width: $container-mobile-width;
+  margin: 38.36px auto auto;
+  padding: 0 16px;
+  box-sizing: content-box;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: center;
+
+  @include onDesktop() {
+    width: $container-desktop-width;
+    grid-template-columns: $sides-desktop-width auto $sides-desktop-width;
+  }
+}

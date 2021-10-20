@@ -1,0 +1,36 @@
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+.filters {
+  @include makeFlex(flex-start, flex-start, wrap);
+  width: 100%;
+  margin-bottom: 24px;
+
+  .filters-title {
+    flex: 0 0 100%;
+    margin-bottom: 12px;
+  }
+
+  .filters-body {
+    flex: 1 0 100%;
+    padding: 24px;
+    overflow: hidden;
+    background-color: $color-white;
+    box-shadow: 0px 6px 24px rgba(93, 62, 188, 0.04);
+    border-radius: 2px;
+    @include makeFlex(flex-start, flex-start, wrap);
+
+    .filters-sorting-type {
+      flex: 0 0 100%;
+      color: $color-black;
+      font-family: $default-font-family;
+      font-size: $default-font-size;
+      line-height: $default-line-height;
+      letter-spacing: .16px;
+
+      .filters-sorting-type_checkbox {
+        margin-right: 12px;
+      }
+    }
+  }
+}

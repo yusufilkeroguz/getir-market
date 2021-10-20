@@ -1,6 +1,6 @@
-@import "../../sass/variables";
+@import "../../sass/mixins";
 
-.basket {
+.navbar-basket {
   @include makeFlex();
   color: $color-white;
   width: auto;
