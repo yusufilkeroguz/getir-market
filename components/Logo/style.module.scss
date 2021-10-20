@@ -1,0 +1,6 @@
+@import "../../sass/variables";
+
+.logo {
+  @include makeFlex();
+  width: 100%;
+}
