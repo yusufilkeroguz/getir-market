@@ -1,7 +1,19 @@
-import '../sass/globals.scss'
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
+import { Provider } from 'react-redux';
+import withRedux from "next-redux-wrapper";
+
+import store from '../redux/configure-store';
+
+import '../sass/globals.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <Provider store={store}>
+      <Component {...pageProps}/>
+    </Provider>
+  )
 }
-export default MyApp
+
+const makeStore = () => store;
+
+export default withRedux(makeStore)(MyApp);

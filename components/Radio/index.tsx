@@ -1,17 +1,10 @@
 import { ReactElement } from "react";
+import { RadioInterface } from "./interface";
 
 import styles from "./style.module.scss";
 
-interface RadioInterface {
-  name: string;
-  value: string;
-  className?: string;
-  id?: string;
-  checked?: boolean;
-}
-
 export function Radio(props: RadioInterface): ReactElement {
-  const { name, value, className, id, checked } = props;
+  const { name, value, className, id, checked, onChange } = props;
   return (
     <div className={styles['checkbox']}>
       <input
@@ -21,6 +14,7 @@ export function Radio(props: RadioInterface): ReactElement {
         checked={checked}
         className={className}
         value={value}
+        onChange={onChange}
       />
     </div>
   )

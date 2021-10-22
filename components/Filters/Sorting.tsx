@@ -1,62 +1,56 @@
 import { Key, ReactChild, ReactElement } from "react";
+import { connect } from "react-redux";
 
-import { FiltersSortingInterface, FiltersSortingTypeInterface } from "./interface";
+import {
+  FiltersSortingInterface,
+  FiltersSortingPropsInterface,
+  FiltersSortingStateInterface,
+  FiltersSortingTypeInterface
+} from "./interface";
 
 import Filters from "./index";
 import Radio from "../Radio";
 
+import { changeSortingOptions } from "../../redux/sorting/action";
+
 import styles from "./style.module.scss";
 
-const SORTING_TYPES: FiltersSortingInterface = [
-  {
-    "title": "Price low to high",
-    "type": "LOW_TO_HIGH",
-    "selected": true
-  },
-  {
-    "title": "Price high to low",
-    "type": "HIGH_TO_LOW",
-    "selected": false
-  },
-  {
-    "title": "New to old",
-    "type": "NEW_TO_OLD",
-    "selected": false
-  },
-  {
-    "title": "Old to New",
-    "type": "OLD_TO_NEW",
-    "selected": false
+export function Sorting(props: FiltersSortingStateInterface): ReactElement {
+  function renderSortingTypes(sortingTypes: FiltersSortingInterface): ReactChild[] {
+    return sortingTypes.map((sortingType: FiltersSortingTypeInterface, key: Key) => {
+      return (
+        <label
+          htmlFor={`sorting_${sortingType.type}`}
+          className={styles['filters-sorting-type']}
+          key={key}
+        >
+          <Radio
+            name='filters_sorting'
+            value={sortingType.type}
+            className={styles['filters-sorting-type_checkbox']}
+            checked={sortingType.selected}
+            onChange={() => props.sortingTypeOnChange(sortingType.type)}
+          />
+
+          {sortingType.title}
+        </label>
+      )
+    })
   }
-]
 
-function renderSortingTypes(sortingTypes: FiltersSortingInterface): ReactChild[] {
-  return sortingTypes.map((sortingType: FiltersSortingTypeInterface, key: Key) => {
-    return (
-      <label
-        htmlFor={`sorting_${sortingType.type}`}
-        className={styles['filters-sorting-type']}
-        key={key}
-      >
-        <Radio
-          name='filters_sorting'
-          value={sortingType.type}
-          className={styles['filters-sorting-type_checkbox']}
-          checked={sortingType.selected}
-        />
-
-        {sortingType.title}
-      </label>
-    )
-  })
-}
-
-export function Sorting(): ReactElement {
   return (
     <Filters title={'Sorting'}>
-      {renderSortingTypes(SORTING_TYPES)}
+      {renderSortingTypes(props.sortingTypes)}
     </Filters>
   )
 }
 
-export default Sorting;
+const mapStateToProps = (state: FiltersSortingPropsInterface) => ({
+  sortingTypes: state.sorting
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  sortingTypeOnChange: (selectedType: string) => dispatch(changeSortingOptions(selectedType))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sorting);

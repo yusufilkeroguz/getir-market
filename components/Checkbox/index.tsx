@@ -1,16 +1,10 @@
 import { ReactElement } from "react";
+import { CheckboxInterface } from "./interface";
 
 import styles from "./style.module.scss";
 
-interface CheckboxInterface {
-  id: string;
-  className: string;
-  value: string;
-  checked?: boolean;
-}
-
 export function Checkbox(props: CheckboxInterface): ReactElement {
-  const { id, value, className, checked } = props;
+  const { id, value, className, checked, onChange } = props;
   return (
     <div className={styles['checkbox']}>
       <input
@@ -19,6 +13,7 @@ export function Checkbox(props: CheckboxInterface): ReactElement {
         checked={checked}
         className={className}
         value={value}
+        onChange={onChange}
       />
     </div>
   )

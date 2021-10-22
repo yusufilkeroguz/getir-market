@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+
 import Basket from '../components/Basket';
 import Brands from '../components/Filters/Brands';
 import Sorting from '../components/Filters/Sorting';
-
 import Navbar from '../components/Navbar';
 
 const Home: NextPage = () => {
