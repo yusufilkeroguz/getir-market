@@ -3,12 +3,12 @@ import { ReactElement } from "react";
 
 import styles from "./style.module.scss";
 
-export function Brands(): ReactElement {
+export function Tags(): ReactElement {
   return (
-    <Filters title={'Brands'}>
-      Brands
+    <Filters title={'Tags'}>
+      Tags
     </Filters>
   )
 }
 
-export default Brands;
+export default Tags;

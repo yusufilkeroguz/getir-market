@@ -5,6 +5,8 @@ import Basket from '../components/Basket';
 import Brands from '../components/Filters/Brands';
 import Sorting from '../components/Filters/Sorting';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import Tags from '../components/Filters/Tags';
 
 const Home: NextPage = () => {
   return (
@@ -21,6 +23,7 @@ const Home: NextPage = () => {
         <div className="left">
           <Sorting />
           <Brands />
+          <Tags />
         </div>
         <div className="content">
           SA
@@ -29,6 +32,8 @@ const Home: NextPage = () => {
           <Basket />
         </div>
       </div>
+
+      <Footer />
     </>
   )
 }

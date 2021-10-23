@@ -1,4 +1,5 @@
 @import "../../sass/mixins";
+@import "../../sass/variables";
 
 .navbar-basket {
   @include makeFlex();
@@ -7,4 +8,73 @@
   padding: 24px;
   background-color: $color-primary-dark;
   white-space: nowrap;
+}
+
+.basket {
+  @include makeFlex(flex-end, center, wrap);
+  background-color: $color-white;
+  border: 8px solid $color-primary;
+  width: 100%;
+  padding: 10px 16px 16px;
+  overflow: hidden;
+  box-sizing: border-box;
+  
+  &-item {
+    @include makeFlex(space-between, center, wrap);
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid #ddd;
+
+    &_details {
+      @include makeFlex(flex-start, flex-start, wrap);
+      max-width: 70%;
+      width: auto;
+
+      &--name {
+        flex: 0 0 100%;
+        margin-bottom: 4px;
+        font-size: $default-font-size;
+        line-height: $default-line-height;
+        overflow: hidden;
+      }
+  
+      &--price {
+        flex: 0 0 100%;
+        letter-spacing: 0.16px;
+        color: $color-primary;
+        font-size: $default-font-size;
+        line-height: $default-line-height;
+      }
+    }
+
+    &_quatity {
+      width: 74px;
+      @include makeFlex(center, center, nowrap);
+      color: $color-primary;
+
+      &--minus,
+      &--plus {
+        cursor: pointer;
+      }
+
+      &--content {
+        font-size: $default-font-size + 1;
+        line-height: $default-line-height + 2;
+        padding: 6px 13px;
+        color: $color-white;
+        background-color: $color-primary;
+        margin: 0 11px;
+      }
+    }
+  }
+
+  &-price {
+    margin-top: 16px;
+    border: 2px solid $color-primary;
+    border-radius: 2px;
+    padding: 17px 24px;
+    color: $color-primary;
+    font-size: $default-font-size;
+    line-height: $default-line-height - 2;
+  }
 }

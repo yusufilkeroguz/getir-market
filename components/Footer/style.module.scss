@@ -1,0 +1,20 @@
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+.footer {
+  @include makeFlex();
+  width: 100%;
+  padding: 136px 0 40px;
+  font-size: 13px;
+  line-height: 174%;
+  color: $color-primary;
+
+  &-item {
+    &:not(:last-child):after {
+      content: '•';
+      font-size: 13px;
+      line-height: 174%;
+      padding: 0 16px;
+    }
+  }
+}
